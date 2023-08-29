@@ -1,0 +1,32 @@
+version: '3.1'
+
+services:
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: mibase2023
+      MYSQL_DATABASE: practica
+      MYSQL_USER: marco
+      MYSQL_PASSWORD: mibase2023
+    volumes:
+      - db_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    links:
+      - db
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: mibase2023
+    depends_on:
+      - db
+    volumes:
+      - phpmyadmin_sessions:/sessions
+      - phpmyadmin_config:/var/www/html/config
+
+volumes:
+  db_data:
+  phpmyadmin_sessions:
+  phpmyadmin_config:
