@@ -13,6 +13,7 @@ public Persona findPersona (Long id);
 public void editPersona(Long idOriginal, Long idNueva,
 		String nuevoNombre, String nuevoApellido,
 		int nuevaedad);
+public void editPersona(Persona per);
 
 
 }

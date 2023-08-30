@@ -49,4 +49,10 @@ public void editPersona(Long idOriginal, Long idNueva,
 	this.savePersona(perso);
 }
 
+@Override
+public void editPersona(Persona per) {
+	this.savePersona(per);
+	
+}
+
 }
